@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konvertori</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stil.css">
+</head>
+<body style="background-color: whitesmoke;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid"> 
+          <a class="navbar-brand" href="../../index.html"><img src="../../slike/Pirates.jpg" alt="icon" width="30"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../../index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Prvi nastavak filma
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="../../strane/prvideo/ofilmu1.html">O filmu</a></li>
+                  <li><a class="dropdown-item" href="../../strane/prvideo/glavniglumci1.html">Glumci</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Drugi nastavak filma
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="../../strane/drugideo/ofilmu2.html">O filmu</a></li>
+                  <li><a class="dropdown-item" href="../../strane/drugideo/glavniglumci2.html">Glumci</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Konvertori
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="../../strane/menjaza/razno.html">Razno</a></li>
+                  <li><a class="dropdown-item" href="../../strane/menjaza/menjacnica.html">Razmena valuta</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  
+
+
+  <div class="container-fluid" style="border: 5px solid green">
+    <div class="row">
+      <div class="col-6" style="background-color: aqua; padding: 30px">
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          style="width: 150px; margin-left: 175px; margin-bottom: 20px"
+          id="izbor1"
+          onchange="meni1(this.value)"
+        >
+          <option selected>Izaberi valutu</option>
+          <option value="EUR">EUR</option>
+          <option value="USD">USD</option>
+          <option value="CHF">CHF</option>
+        </select>
+        <div class="row">
+          <div class="col-6">
+            <label for="cel">Unesi prodajni kurs <span id="upk"></span>:</label><br /><br />
+            <label for="cel">Unesi dinare :</label>
+          </div>
+          <div class="col-6">
+            <input type="number" name="pk" id="pk" /><br /><br />
+            <input type="number" name="din" id="din" /><br /><br />
+          </div>
+        </div>
+
+        <button
+          class="btn btn-primary"
+          style="margin-left: 170px; margin-top: 20px"
+          onclick="dinartovaluta(Number(document.getElementById('pk').value), Number(document.getElementById('din').value))"
+        >
+          Konvertuj</button><br /><br />
+        <label for="">Ukupno <span id="sv"></span>:</label>
+        <p id="kes"></p>
+      </div>
+      <!-- desna strana -->
+      <div class="col-6" style="background-color: chartreuse; padding: 40px">
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          style="width: 150px; margin-left: 175px; margin-bottom: 20px"
+          id="izbor2"
+          onchange="meni2(this.value)"
+        >
+          <option selected>Izaberi valutu</option>
+          <option value="EUR">EUR</option>
+          <option value="USD">USD</option>
+          <option value="CHF">CHF</option>
+        </select>
+        <div class="row">
+          <div class="col-6">
+            <label for="cel">Unesi kupovni kurs DIN:</label><br /><br />
+            <label for="cel">Unesi iznos <span id="ukk"></span> :</label>
+          </div>
+          <div class="col-6">
+            <input type="number" name="ukk2" id="ukk2" /><br /><br />
+            <input type="number" name="sv2" id="sv2" /><br /><br />
+          </div>
+        </div>
+
+        <button
+          class="btn btn-primary"
+          style="margin-left: 170px; margin-top: 20px"
+          onclick="valutatodinar(Number(document.getElementById('ukk2').value), Number(document.getElementById('sv2').value))"
+        >
+          Konvertuj</button><br /><br />
+        <label for="">Ukupno Dinara:</label>
+        <p id="kes2"></p>
+      </div>
+    </div>
+  </div>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    function dinartovaluta(kurs, din) {
+      let iznos = din / kurs;
+      document.getElementById('kes').innerHTML = iznos.toFixed(2);
+    }
+
+    function valutatodinar(kursdin, valuta) {
+      let iznos = kursdin * valuta;
+      document.getElementById('kes2').innerHTML = iznos.toFixed(2);
+    }
+
+    function meni1(iz) {
+      switch (iz) {
+        case 'USD':
+          document.getElementById('sv').innerHTML = ' Dolara';
+          document.getElementById('upk').innerHTML = 'Dolara';
+          break;
+        case 'EUR':
+          document.getElementById('sv').innerHTML = ' Eura';
+          document.getElementById('upk').innerHTML = 'Eura';
+          break;
+        case 'CHF':
+          document.getElementById('sv').innerHTML = ' Franaka';
+          document.getElementById('upk').innerHTML = 'Franaka';
+          break;
+        default:
+          document.getElementById('sv').innerHTML = '';
+          document.getElementById('upk').innerHTML = '';
+          break;
+      }
+    }
+
+    function meni2(iz) {
+      switch (iz) {
+        case 'EUR':
+          document.getElementById('ukk').innerHTML = ' Eura';
+          break;
+        case 'USD':
+          document.getElementById('ukk').innerHTML = ' Dolara';
+          break;
+        case 'CHF':
+          document.getElementById('ukk').innerHTML = ' Franaka';
+          break;
+        default:
+          document.getElementById('ukk').innerHTML = '';
+          break;
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+
